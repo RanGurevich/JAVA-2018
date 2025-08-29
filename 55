@@ -1,0 +1,89 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication1;
+
+/**
+ *
+ * @author student
+ */
+import java.util.Random;
+import javax.swing.*;
+public class JavaApplication1 {
+
+    /**
+     * @param args the command line arguments
+     */
+      public static void main(String[] args) 
+    {
+        String userInput="fhgchg";
+           Random rand1;
+           Random rand2;
+           Random rand3;
+           int countCorrect=0;
+           int countQuestions=0;
+           double result;
+              
+          
+        while (userInput!="")
+        {
+            
+           rand1 = new Random();
+           int  zeroorone = rand1.nextInt(2) + 1;
+           if (zeroorone==1)
+           {
+                rand2 = new Random();
+                int  num1 = rand2.nextInt(10) + 1;
+                rand3 = new Random();
+                int  num2 = rand2.nextInt(10) + 1;
+                userInput=JOptionPane.showInputDialog(num1+"x"+num2) ;
+                if (num1*num2==Integer.parseInt(userInput) )
+                {
+                    JOptionPane.showMessageDialog(null, "Correct") ;
+                    countCorrect++;
+                    countQuestions++;
+                }
+                else 
+                {
+                    JOptionPane.showMessageDialog(null, "False. The answer is "+num1*num2); 
+                    countQuestions++;
+                }
+            
+           }
+           if(zeroorone==2)
+           {
+               rand2 = new Random();
+                int  num1 = rand2.nextInt(10) + 1;
+                rand3 = new Random();
+                int  num2 = rand2.nextInt(10) + 1;
+                          
+                while(num1%num2!=0)
+                {
+                       num1 = rand2.nextInt(10) + 1;
+                  num2 = rand2.nextInt(10) + 1;
+                }
+                     userInput=JOptionPane.showInputDialog(num1+"/"+num2) ;
+                if (num1/num2==Integer.parseInt(userInput) )
+                {
+                    JOptionPane.showMessageDialog(null, "Correct") ;
+                    countCorrect++;
+                    countQuestions++;
+                }
+                else 
+                {
+                    JOptionPane.showMessageDialog(null, "False. The answer is "+num1/num2); 
+                    countQuestions++;
+                }
+                result =((double)countCorrect/(double)countQuestions)*100;
+                             System.out.println("your grade is: "+result);
+      
+           }
+        }       
+       
+      
+       
+        
+    }
+}

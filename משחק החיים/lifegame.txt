@@ -1,0 +1,75 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class LifeGame extends JApplet implements ActionListener {
+    
+	private Container c;
+	private JTextArea displayBoard;		// display board
+	private JButton   nextGeneration;	// button to generate next generation
+	int[][]cells=new int[999][999];
+        int userLine, userRows=0;
+        @Override
+	public void init(){					// Applet init() method
+		// set layout manager
+		c = getContentPane();
+		c.setLayout(new BorderLayout());
+		
+		// setup components
+		displayBoard   = new JTextArea();
+		nextGeneration = new JButton("Next generation");
+		nextGeneration.addActionListener(this);
+		
+		// add components to applet
+		c.add(displayBoard,BorderLayout.CENTER);
+		c.add(nextGeneration,BorderLayout.SOUTH);
+		gameStart();                                             
+	}
+	
+	public void displayLife(){
+		if (displayBoard.getText().equals("")){
+			displayBoard.setText("Hello");
+			displayBoard.append("\n");
+			displayBoard.append("YG 4");
+		}
+		else{
+			displayBoard.setText("");
+		}
+		
+	}
+	
+	// implementation of ActionListener interface
+        @Override
+	public void actionPerformed (ActionEvent e){
+		generateNextGeneration();
+		displayLife();
+	}
+	
+	public void generateNextGeneration(){
+		
+	}
+        public void gameStart()
+        {
+            String rows, columns;
+            rows=JOptionPane.showInputDialog("Enter how many rows: ");
+            columns=JOptionPane.showInputDialog("Enter how many columns: ");
+            userLine= Integer.parseInt(rows);
+            userRows=Integer.parseInt(columns);
+            
+            for (int i = 0; i < userColumns; i++) {
+                for (int j = 0; j < userRows; j++) {
+                    cells[i][j]=
+                }
+            }
+            displayBoard.setText("");
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            
+        }
+}

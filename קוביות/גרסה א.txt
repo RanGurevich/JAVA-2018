@@ -1,0 +1,61 @@
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+public class cubes extends JApplet implements ActionListener 
+{
+int picxelInt;
+int hieght;
+int width;
+
+    public void init() 
+    {    
+        // Applet init() method
+        
+        String numOfPicxals = JOptionPane.showInputDialog("Enter how many pixcels: ");
+         picxelInt = Integer.parseInt(numOfPicxals); 
+         
+         
+    }
+
+    // implementation of ActionListener interface
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+
+    }
+    @Override
+    public void paint(Graphics  g)
+    {
+        // getting information and declring varables in order to paint as order
+        
+     hieght=getHeight();
+        width=getWidth();
+        int endWidth=width;
+        g.setColor(Color.RED);
+        for (int j  = 0; j < hieght; j+=picxelInt-1)
+        {
+            for (int i = 0; i < width; i+=picxelInt) 
+        {
+            // 
+            if (i+picxelInt<endWidth)
+            {
+                if (endWidth>i+j)
+                {
+                    g.drawRect(endWidth-i-1, hieght-j, picxelInt, picxelInt); 
+                }                
+            }
+            else
+            {
+                endWidth-=picxelInt;
+                break;
+            }
+          
+        } 
+        }
+       
+       
+        System.out.println("hieght: "+hieght);
+         System.out.println("width: "+width);
+    }
+ }
